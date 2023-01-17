@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
 
       - name: Install dependencies
         run: pip3 install -U online-judge-verify-helper
@@ -21,4 +19,4 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
-        run: oj-verify all -j 2
+        run: oj-verify --config-file .verify-helper/remote.toml all
