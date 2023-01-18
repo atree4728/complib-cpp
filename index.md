@@ -1,6 +1,17 @@
 ---
 data:
-  libraryCategories: []
+  libraryCategories:
+  - name: complib/misc
+    pages:
+    - icon: ':warning:'
+      path: complib/misc/alias.hpp
+      title: Aliases
+    - icon: ':warning:'
+      path: complib/misc/fix.hpp
+      title: Y combinator
+    - icon: ':warning:'
+      path: complib/misc/make_vector.hpp
+      title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
   verificationCategories:
   - name: test/library_checker
     pages:
