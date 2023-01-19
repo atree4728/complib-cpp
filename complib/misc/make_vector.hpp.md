@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':warning:'
     path: complib/misc/alias.hpp
-    title: Aliases
+    title: complib/misc/alias.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -43,16 +43,8 @@ data:
   verifiedWith: []
 documentation_of: complib/misc/make_vector.hpp
 layout: document
-title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
+redirect_from:
+- /library/complib/misc/make_vector.hpp
+- /library/complib/misc/make_vector.hpp.html
+title: complib/misc/make_vector.hpp
 ---
-
-$N$ 次元 `vector` を簡便に宣言する。
-
-## Usage
-
-```c++
-auto a = make_vector<int>({1, 2, 3});
-// auto a = std::vector(1, std::vector(2, std::vector(3, int{})));
-auto b = make_vector<int>({4, 5}, 42);
-// auto b = std::vector(4, std::vector(5, 42));
-```

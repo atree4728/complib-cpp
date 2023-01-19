@@ -5,13 +5,18 @@ data:
     pages:
     - icon: ':warning:'
       path: complib/misc/alias.hpp
-      title: Aliases
+      title: complib/misc/alias.hpp
     - icon: ':warning:'
       path: complib/misc/fix.hpp
-      title: Y combinator
+      title: complib/misc/fix.hpp
     - icon: ':warning:'
       path: complib/misc/make_vector.hpp
-      title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
+      title: complib/misc/make_vector.hpp
+  - name: scripts
+    pages:
+    - icon: ':warning:'
+      path: scripts/gendoc.py
+      title: scripts/gendoc.py
   verificationCategories:
   - name: test/library_checker
     pages:

@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: complib/misc/make_vector.hpp
-    title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
+    title: complib/misc/make_vector.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -45,7 +45,8 @@ data:
   verifiedWith: []
 documentation_of: complib/misc/alias.hpp
 layout: document
-title: Aliases
+redirect_from:
+- /library/complib/misc/alias.hpp
+- /library/complib/misc/alias.hpp.html
+title: complib/misc/alias.hpp
 ---
-
-Rust 風の型 alias 集と、それらに対するユーザー定義リテラル。
