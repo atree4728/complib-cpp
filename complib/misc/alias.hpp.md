@@ -2,13 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: complib/ds/union_find.hpp
+    title: Union Find
   - icon: ':warning:'
     path: complib/misc/make_vector.hpp
-    title: complib/misc/make_vector.hpp
-  _extendedVerifiedWith: []
+    title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_11_D.test.cpp
+    title: test/aoj/ALDS1_11_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/unionfind.test.cpp
+    title: test/library_checker/unionfind.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"complib/misc/alias.hpp\"\n\n#include <cstddef>\n#include\
@@ -40,13 +49,15 @@ data:
   path: complib/misc/alias.hpp
   requiredBy:
   - complib/misc/make_vector.hpp
+  - complib/ds/union_find.hpp
   timestamp: '2023-01-19 00:31:39+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/unionfind.test.cpp
+  - test/aoj/ALDS1_11_D.test.cpp
 documentation_of: complib/misc/alias.hpp
 layout: document
-redirect_from:
-- /library/complib/misc/alias.hpp
-- /library/complib/misc/alias.hpp.html
-title: complib/misc/alias.hpp
+title: Aliases
 ---
+
+Rust 風の型 alias 集と、それらに対するユーザー定義リテラル。
