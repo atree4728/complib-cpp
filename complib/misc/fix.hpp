@@ -11,6 +11,4 @@ template<class F> struct fix {
     }
 };
 
-template<typename F> fix(F) -> fix<F>;
-
 }  // namespace a2ry
