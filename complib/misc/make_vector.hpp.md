@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: complib/misc/alias.hpp
     title: Aliases
   _extendedRequiredBy: []
