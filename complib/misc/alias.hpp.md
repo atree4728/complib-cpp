@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: complib/ds/union_find.hpp
     title: Union Find
   - icon: ':warning:'
     path: complib/misc/make_vector.hpp
     title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_11_D.test.cpp
     title: test/aoj/ALDS1_11_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/unionfind.test.cpp
     title: test/library_checker/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"complib/misc/alias.hpp\"\n\n#include <cstddef>\n#include\
@@ -51,7 +51,7 @@ data:
   - complib/ds/union_find.hpp
   - complib/misc/make_vector.hpp
   timestamp: '2023-01-19 00:31:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_11_D.test.cpp
   - test/library_checker/unionfind.test.cpp

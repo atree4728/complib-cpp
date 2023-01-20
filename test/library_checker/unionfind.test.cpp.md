@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: complib/ds/union_find.hpp
     title: Union Find
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: complib/misc/alias.hpp
     title: Aliases
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind
@@ -71,7 +71,7 @@ data:
   path: test/library_checker/unionfind.test.cpp
   requiredBy: []
   timestamp: '2023-01-20 11:12:28+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/unionfind.test.cpp
 layout: document

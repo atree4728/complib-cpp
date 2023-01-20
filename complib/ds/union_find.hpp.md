@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: complib/misc/alias.hpp
     title: Aliases
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_11_D.test.cpp
     title: test/aoj/ALDS1_11_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/unionfind.test.cpp
     title: test/library_checker/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"complib/ds/union_find.hpp\"\n\n#include <numeric>\n#include\
@@ -77,7 +77,7 @@ data:
   path: complib/ds/union_find.hpp
   requiredBy: []
   timestamp: '2023-01-20 11:12:28+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_11_D.test.cpp
   - test/library_checker/unionfind.test.cpp

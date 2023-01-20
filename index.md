@@ -3,12 +3,12 @@ data:
   libraryCategories:
   - name: complib/ds
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: complib/ds/union_find.hpp
       title: Union Find
   - name: complib/misc
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: complib/misc/alias.hpp
       title: Aliases
     - icon: ':warning:'
@@ -25,7 +25,7 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_11_D.test.cpp
       title: test/aoj/ALDS1_11_D.test.cpp
   - name: test/library_checker
@@ -33,7 +33,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/aplusb.test.cpp
       title: test/library_checker/aplusb.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/unionfind.test.cpp
       title: test/library_checker/unionfind.test.cpp
 layout: toppage
