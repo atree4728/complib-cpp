@@ -2,6 +2,8 @@
 
 #include <numeric>
 #include <ranges>
+#include <utility>
+#include <variant>
 #include <vector>
 
 #include "../misc/alias.hpp"
@@ -9,28 +11,39 @@
 namespace a2ry {
 
 struct UnionFind {
-    usize n;
-    std::vector<usize> parent_or_size;
-    explicit UnionFind(const usize n): n{ n }, parent_or_size(n, -1_uz) {}
-    usize root(const usize u) {
-        return parent_or_size[u] < n ? parent_or_size[u] = root(parent_or_size[u]) : u;
+    using node_t = std::variant<usize, usize>;
+    const usize n;
+
+  private:
+    enum type : usize { vsize = 0, vparent = 1 };
+    std::vector<node_t> node;
+
+  public:
+    explicit constexpr UnionFind(const usize n): n{ n }, node(n, node_t{ std::in_place_index<vsize>, 1 }) {}
+    constexpr auto root(usize u) & -> usize {
+        while (node[u].index() == vparent) {
+            const auto p = get<vparent>(node[u]);
+            if (node[p].index() == vparent) node[u].emplace<vparent>(get<vparent>(node[p]));
+            u = p;
+        }
+        return u;
     }
-    usize size(const usize u) {
-        return -parent_or_size[root(u)];
+    constexpr auto size(const usize u) -> usize {
+        return get<vsize>(node[root(u)]);
     }
-    bool same(const usize u, const usize v) {
+    constexpr auto same(const usize u, const usize v) -> bool {
         return root(u) == root(v);
     }
-    bool unite(usize u, usize v) {
+    constexpr auto unite(usize u, usize v) & -> std::optional<std::pair<usize, usize>> {
         u = root(u);
         v = root(v);
-        if (u == v) return false;
-        if (size(u) < size(v)) std::swap(u, v);
-        parent_or_size[u] += parent_or_size[v];
-        parent_or_size[v] = u;
-        return true;
+        if (u == v) return std::nullopt;
+        if (size(u) < size(v)) std::ranges::swap(u, v);
+        get<vsize>(node[u]) += get<vsize>(node[v]);
+        node[v].emplace<vparent>(u);
+        return std::pair{ u, v };
     }
-    std::vector<std::vector<usize>> group() {
+    constexpr auto group() -> std::vector<std::vector<usize>> {
         std::vector g(n, std::vector<usize>{});
         for (const usize u: std::views::iota(0_uz, n)) {
             g[root(u)].emplace_back(u);
