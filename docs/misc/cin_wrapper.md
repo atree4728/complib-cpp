@@ -16,7 +16,7 @@ inputable ::=
     | container-like<inputable>
 ```
 ただし、`container-like<inputable>` には `std::map<K, V>` みたいなのもお気持ちで含めています。
-（`std::map<K, V>::value_type` は `std::pair<const K, V>` で、`std::pair<K, V>` が *extractable* なら OK）
+（`std::map<K, V>::value_type` は `std::pair<const K, V>` で、`K`, `V` が *extractable* なら OK）
 
 ## Usage
 - `in<T>() -> T`
@@ -30,9 +30,9 @@ inputable ::=
   - `const auto [t1, t2, ..., tn] = in<T1, T2, ..., TN>()`
 - `in<C>(const& usize[] extent) -> C`
   - $N$ を `extent` の長さとして、`C::value_type::...::value_type`（$N$ 回）が *extractable* であることを要請する。
-  - `C(extent[0], C::value_type(extent[1], C::value_type::value_type(extent[2], ...)))` みたいなインスタンスを返す（）
+  - `C(extent[0], C::value_type(extent[1], C::value_type::value_type(extent[2], ...)))` みたいなインスタンスを返す
 - `in_vec<T>(extent)`
-  - $N$ を `extent` の長さとして、`C` を `std::vector<std::vector<...<T>>>`（$n$ 重）として `in<C>(extent)` を返す。
+  - $N$ を `extent` の長さとして、`C` を `std::vector<std::vector<...<T>>>`（$N$ 重）として `in<C>(extent)` を返す。
 
 ```c++
 // 42
