@@ -1,23 +1,17 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_D"
 
-#include <iostream>
-
 #include "complib/ds/union_find.hpp"
+#include "complib/misc/template.hpp"
 
 int main() {
-    std::size_t n, m;
-    std::cin >> n >> m;
-    a2ry::UnionFind uf(n);
+    using namespace a2ry;
+    auto [n, m] = in<usize, usize>();
+    UnionFind uf(n);
     while (m--) {
-        std::size_t u, v;
-        std::cin >> u >> v;
-        uf.unite(u, v);
+        uf.unite(in<usize>(), in<usize>());
     }
-    std::size_t q;
-    std::cin >> q;
+    auto q = in<usize>();
     while (q--) {
-        std::size_t u, v;
-        std::cin >> u >> v;
-        std::cout << (uf.same(u, v) ? "yes" : "no") << "\n";
+        println(uf.same(in<usize>(), in<usize>()) ? "yes" : "no");
     }
 }
