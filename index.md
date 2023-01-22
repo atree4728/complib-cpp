@@ -11,12 +11,24 @@ data:
     - icon: ':heavy_check_mark:'
       path: complib/misc/alias.hpp
       title: Aliases
+    - icon: ':heavy_check_mark:'
+      path: complib/misc/cin_wrapper.hpp
+      title: Cin Wrapper
+    - icon: ':heavy_check_mark:'
+      path: complib/misc/cout_wrapper.hpp
+      title: Cout Wrapper
     - icon: ':warning:'
       path: complib/misc/fix.hpp
       title: Y combinator
     - icon: ':warning:'
       path: complib/misc/make_vector.hpp
       title: "\u591A\u6B21\u5143 vector \u306E\u5BA3\u8A00"
+    - icon: ':heavy_check_mark:'
+      path: complib/misc/template.hpp
+      title: Template
+    - icon: ':heavy_check_mark:'
+      path: complib/misc/type_traits.hpp
+      title: complib/misc/type_traits.hpp
   - name: scripts
     pages:
     - icon: ':warning:'

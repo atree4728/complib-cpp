@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: complib/ds/union_find.hpp
-    title: Union Find
-  - icon: ':heavy_check_mark:'
     path: complib/misc/alias.hpp
     title: Aliases
   - icon: ':heavy_check_mark:'
@@ -14,28 +11,28 @@ data:
     path: complib/misc/cout_wrapper.hpp
     title: Cout Wrapper
   - icon: ':heavy_check_mark:'
-    path: complib/misc/template.hpp
-    title: Template
-  - icon: ':heavy_check_mark:'
     path: complib/misc/type_traits.hpp
     title: complib/misc/type_traits.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_11_D.test.cpp
+    title: test/aoj/ALDS1_11_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/aplusb.test.cpp
+    title: test/library_checker/aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/unionfind.test.cpp
+    title: test/library_checker/unionfind.test.cpp
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/unionfind
-    links:
-    - https://judge.yosupo.jp/problem/unionfind
-  bundledCode: "#line 1 \"test/library_checker/unionfind.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include <cassert>\n#include\
-    \ <iomanip>\n#include <iostream>\n\n#line 2 \"complib/ds/union_find.hpp\"\n\n\
-    #include <numeric>\n#include <ranges>\n#include <utility>\n#include <variant>\n\
-    #include <vector>\n\n#line 2 \"complib/misc/alias.hpp\"\n\n#include <cstddef>\n\
-    #include <cstdint>\n#include <type_traits>\n\nnamespace a2ry {\n\nusing i32 =\
-    \ std::int_fast32_t;\nusing i64 = std::int_fast64_t;\nusing u32 = std::uint_fast32_t;\n\
+    links: []
+  bundledCode: "#line 2 \"complib/misc/template.hpp\"\n\n#include <iomanip>\n#include\
+    \ <iostream>\n#include <memory>\n\n#line 2 \"complib/misc/alias.hpp\"\n\n#include\
+    \ <cstddef>\n#include <cstdint>\n#include <type_traits>\n\nnamespace a2ry {\n\n\
+    using i32 = std::int_fast32_t;\nusing i64 = std::int_fast64_t;\nusing u32 = std::uint_fast32_t;\n\
     using u64 = std::uint_fast64_t;\nusing usize = std::size_t;\nusing isize = std::ptrdiff_t;\n\
     \nconstexpr auto operator\"\"_i32(unsigned long long n) noexcept {\n    return\
     \ static_cast<i32>(n);\n}\nconstexpr auto operator\"\"_i64(unsigned long long\
@@ -49,29 +46,10 @@ data:
     \     \\\n    struct type##_##1 { using base = type; }; \\\n    template<> struct\
     \ is_1indexed<type##_##1>: std::true_type {};\nINDEXED_IMPL(int)\nINDEXED_IMPL(i32)\n\
     INDEXED_IMPL(u32)\nINDEXED_IMPL(i64)\nINDEXED_IMPL(u64)\nINDEXED_IMPL(usize)\n\
-    #undef INDEXED_IMPL\n\n}  // namespace a2ry\n#line 10 \"complib/ds/union_find.hpp\"\
-    \n\nnamespace a2ry {\n\nstruct UnionFind {\n    using node_t = std::variant<usize,\
-    \ usize>;\n    const usize n;\n\n  private:\n    enum type : usize { vsize = 0,\
-    \ vparent = 1 };\n    std::vector<node_t> node;\n\n  public:\n    explicit constexpr\
-    \ UnionFind(const usize n): n{ n }, node(n, node_t{ std::in_place_index<vsize>,\
-    \ 1 }) {}\n    constexpr auto root(usize u) & -> usize {\n        while (node[u].index()\
-    \ == vparent) {\n            const auto p = get<vparent>(node[u]);\n         \
-    \   if (node[p].index() == vparent) node[u].emplace<vparent>(get<vparent>(node[p]));\n\
-    \            u = p;\n        }\n        return u;\n    }\n    constexpr auto size(const\
-    \ usize u) -> usize {\n        return get<vsize>(node[root(u)]);\n    }\n    constexpr\
-    \ auto same(const usize u, const usize v) -> bool {\n        return root(u) ==\
-    \ root(v);\n    }\n    constexpr auto unite(usize u, usize v) & -> std::optional<std::pair<usize,\
-    \ usize>> {\n        u = root(u);\n        v = root(v);\n        if (u == v) return\
-    \ std::nullopt;\n        if (size(u) < size(v)) std::ranges::swap(u, v);\n   \
-    \     get<vsize>(node[u]) += get<vsize>(node[v]);\n        node[v].emplace<vparent>(u);\n\
-    \        return std::pair{ u, v };\n    }\n    constexpr auto group() -> std::vector<std::vector<usize>>\
-    \ {\n        std::vector g(n, std::vector<usize>{});\n        for (const usize\
-    \ u: std::views::iota(0_uz, n)) {\n            g[root(u)].emplace_back(u);\n \
-    \       }\n        std::erase_if(g, [](auto &&i) { return empty(i); });\n    \
-    \    return g;\n    }\n};\n\n}  // namespace a2ry\n#line 2 \"complib/misc/template.hpp\"\
-    \n\n#line 5 \"complib/misc/template.hpp\"\n#include <memory>\n\n#line 2 \"complib/misc/cin_wrapper.hpp\"\
-    \n\n#include <algorithm>\n#include <concepts>\n#include <deque>\n#line 11 \"complib/misc/cin_wrapper.hpp\"\
-    \n\n#line 2 \"complib/misc/type_traits.hpp\"\n\n#line 7 \"complib/misc/type_traits.hpp\"\
+    #undef INDEXED_IMPL\n\n}  // namespace a2ry\n#line 2 \"complib/misc/cin_wrapper.hpp\"\
+    \n\n#include <algorithm>\n#include <concepts>\n#include <deque>\n#line 7 \"complib/misc/cin_wrapper.hpp\"\
+    \n#include <ranges>\n#line 9 \"complib/misc/cin_wrapper.hpp\"\n#include <utility>\n\
+    #include <vector>\n\n#line 2 \"complib/misc/type_traits.hpp\"\n\n#line 7 \"complib/misc/type_traits.hpp\"\
     \n\n#line 9 \"complib/misc/type_traits.hpp\"\n\nnamespace a2ry {\n\ntemplate<class\
     \ T, std::size_t I>\nconcept has_tuple_element = requires(T t) {\n           \
     \                     typename std::tuple_element_t<I, std::remove_cvref_t<T>>;\n\
@@ -137,38 +115,28 @@ data:
     \ a2ry\n#line 10 \"complib/misc/template.hpp\"\n\n__attribute__((constructor))\
     \ inline auto io_setup() noexcept {\n    std::ios::sync_with_stdio(false);\n \
     \   std::cin.tie(nullptr);\n    std::cout << std::fixed << std::setprecision(10);\n\
-    \    std::cerr << std::fixed << std::setprecision(10);\n}\n#line 9 \"test/library_checker/unionfind.test.cpp\"\
-    \n\nint main() {\n    using namespace a2ry;\n    io_config::yes = \"1\";\n   \
-    \ io_config::no = \"0\";\n    auto [n, q] = in<usize, usize>();\n    UnionFind\
-    \ uf(n);\n    while (q--) {\n        const auto [t, u, v] = in<usize, usize, usize>();\n\
-    \        if (t == 0) {\n            uf.unite(u, v);\n        } else if (t == 1)\
-    \ {\n            println(uf.same(u, v));\n        } else {\n            assert(false);\n\
-    \        }\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include\
-    \ <cassert>\n#include <iomanip>\n#include <iostream>\n\n#include \"complib/ds/union_find.hpp\"\
-    \n#include \"complib/misc/template.hpp\"\n\nint main() {\n    using namespace\
-    \ a2ry;\n    io_config::yes = \"1\";\n    io_config::no = \"0\";\n    auto [n,\
-    \ q] = in<usize, usize>();\n    UnionFind uf(n);\n    while (q--) {\n        const\
-    \ auto [t, u, v] = in<usize, usize, usize>();\n        if (t == 0) {\n       \
-    \     uf.unite(u, v);\n        } else if (t == 1) {\n            println(uf.same(u,\
-    \ v));\n        } else {\n            assert(false);\n        }\n    }\n}\n"
+    \    std::cerr << std::fixed << std::setprecision(10);\n}\n"
+  code: "#pragma once\n\n#include <iomanip>\n#include <iostream>\n#include <memory>\n\
+    \n#include \"alias.hpp\"\n#include \"cin_wrapper.hpp\"\n#include \"cout_wrapper.hpp\"\
+    \n\n__attribute__((constructor)) inline auto io_setup() noexcept {\n    std::ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    std::cout << std::fixed << std::setprecision(10);\n\
+    \    std::cerr << std::fixed << std::setprecision(10);\n}\n"
   dependsOn:
-  - complib/ds/union_find.hpp
   - complib/misc/alias.hpp
-  - complib/misc/template.hpp
   - complib/misc/cin_wrapper.hpp
   - complib/misc/type_traits.hpp
   - complib/misc/cout_wrapper.hpp
-  isVerificationFile: true
-  path: test/library_checker/unionfind.test.cpp
+  isVerificationFile: false
+  path: complib/misc/template.hpp
   requiredBy: []
   timestamp: '2023-01-22 19:33:57+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/unionfind.test.cpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/ALDS1_11_D.test.cpp
+  - test/library_checker/unionfind.test.cpp
+  - test/library_checker/aplusb.test.cpp
+documentation_of: complib/misc/template.hpp
 layout: document
-redirect_from:
-- /verify/test/library_checker/unionfind.test.cpp
-- /verify/test/library_checker/unionfind.test.cpp.html
-title: test/library_checker/unionfind.test.cpp
+title: Template
 ---
+
