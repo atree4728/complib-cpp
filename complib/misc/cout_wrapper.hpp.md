@@ -6,7 +6,7 @@ data:
     title: Aliases
   - icon: ':heavy_check_mark:'
     path: complib/misc/type_traits.hpp
-    title: complib/misc/type_traits.hpp
+    title: Type Traits
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: complib/misc/template.hpp

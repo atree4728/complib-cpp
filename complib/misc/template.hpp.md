@@ -12,7 +12,7 @@ data:
     title: Cout Wrapper
   - icon: ':heavy_check_mark:'
     path: complib/misc/type_traits.hpp
-    title: complib/misc/type_traits.hpp
+    title: Type Traits
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'

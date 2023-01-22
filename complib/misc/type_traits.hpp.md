@@ -99,8 +99,5 @@ data:
   - test/library_checker/aplusb.test.cpp
 documentation_of: complib/misc/type_traits.hpp
 layout: document
-redirect_from:
-- /library/complib/misc/type_traits.hpp
-- /library/complib/misc/type_traits.hpp.html
-title: complib/misc/type_traits.hpp
+title: Type Traits
 ---
