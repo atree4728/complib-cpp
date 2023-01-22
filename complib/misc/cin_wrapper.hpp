@@ -29,8 +29,6 @@ std::is_reference_v<T>&& requires(T t) {
 }
 (std::make_index_sequence<std::tuple_size_v<T>>());
 
-template<class T> concept stream_extractable = requires(T& t) { std::cin >> t; };
-
 template<class T, usize N> struct nth_vector {
     using type = std::vector<typename nth_vector<T, N - 1>::type>;
 };
@@ -40,12 +38,21 @@ template<class T> struct nth_vector<T, 0> {
 
 template<class T, usize N> using nth_vector_t = nth_vector<T, N>::type;
 
+template<class T> concept stream_extractable = requires(T& t) { std::cin >> t; } or is_1indexed<T>::value;
+
 template<class T>
     requires stream_extractable<T>
-inline auto in() -> T {
-    T x{};
-    std::cin >> x;
-    return x;
+inline auto in() {
+    if constexpr (is_1indexed<T>::value) {
+        typename T::base x{};
+        std::cin >> x;
+        --x;
+        return x;
+    } else {
+        T x{};
+        std::cin >> x;
+        return x;
+    }
 }
 
 template<class T>

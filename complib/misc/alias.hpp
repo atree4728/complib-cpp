@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <type_traits>
 
 namespace a2ry {
 
@@ -30,5 +31,17 @@ constexpr auto operator""_uz(unsigned long long n) noexcept {
 constexpr auto operator""_iz(unsigned long long n) noexcept {
     return static_cast<isize>(n);
 }
+
+template<class T> struct is_1indexed: std::false_type {};
+#define INDEXED_IMPL(type)                    \
+    struct type##_##1 { using base = type; }; \
+    template<> struct is_1indexed<type##_##1>: std::true_type {};
+INDEXED_IMPL(int)
+INDEXED_IMPL(i32)
+INDEXED_IMPL(u32)
+INDEXED_IMPL(i64)
+INDEXED_IMPL(u64)
+INDEXED_IMPL(usize)
+#undef INDEXED_IMPL
 
 }  // namespace a2ry

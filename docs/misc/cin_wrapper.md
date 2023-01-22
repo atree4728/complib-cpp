@@ -21,6 +21,7 @@ inputable ::=
 ## Usage
 - `in<T>() -> T`
   - `T` は *extractable*
+  - `T` の suffix が `_1` であれば 1-index を 0-indexed に変換する。
 - `in<tuple-like<T1, T2, ..., TN>>() -> tuple-like<T1, T2, ..., TN>`
   - `tuple-like` は [*tuple-like*](https://cpprefjp.github.io/reference/tuple/make_from_tuple.html) な型とする。
   - `T1`, `T2`, ..., `TN` の順に入力される。
@@ -50,6 +51,8 @@ in<std::deque<std::stack<int>>>({2, 3}) // -> std::deque<std::stack<int>>{ std::
 // abc
 // def
 in_vec<char>({2, 3}) // std::vector<std::vector<char>>{ {'a', 'b', 'c' }, {'d', 'e', 'f' } }
+// 1
+in<usize_1>() // -> 0 (1-indexed to 0-indexed)
 ```
 
 ## Note
