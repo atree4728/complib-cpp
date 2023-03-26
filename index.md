@@ -1,6 +1,14 @@
 ---
 data:
   libraryCategories:
+  - name: complib/algebra
+    pages:
+    - icon: ':warning:'
+      path: complib/algebra/data_type.hpp
+      title: complib/algebra/data_type.hpp
+    - icon: ':warning:'
+      path: complib/algebra/util.hpp
+      title: complib/algebra/util.hpp
   - name: complib/ds
     pages:
     - icon: ':heavy_check_mark:'

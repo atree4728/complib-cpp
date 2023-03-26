@@ -88,9 +88,9 @@ data:
   isVerificationFile: false
   path: complib/misc/type_traits.hpp
   requiredBy:
-  - complib/misc/cout_wrapper.hpp
   - complib/misc/template.hpp
   - complib/misc/cin_wrapper.hpp
+  - complib/misc/cout_wrapper.hpp
   timestamp: '2023-01-22 19:33:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
