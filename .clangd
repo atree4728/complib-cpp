@@ -1,0 +1,12 @@
+CompileFlags:
+  Add: [-std=gnu++20, -Wall, -Wextra, -I/usr/local/include/c++/12/x86_64-apple-darwin21, -I/usr/local/include, -I.]
+  Compiler: g++
+
+InlayHints:
+  Designators: Yes
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+
+Hover:
+  ShowAKA: Yes
